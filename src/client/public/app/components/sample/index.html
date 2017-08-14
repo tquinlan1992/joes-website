@@ -1,0 +1,16 @@
+<div>
+    <h1>
+        Sample Component ({{$ctrl.test + " " + $ctrl.objectTest.text}})
+    </h1>
+
+    <md-button>angular material button</md-button>
+
+    <todays-weather>
+    </todays-weather>
+
+    <a ng-repeat="x in $ctrl.tasks">
+        {{x}}
+    </a>
+
+    <a ui-sref="index.testParamId({idFromParam: 'Tommy'})"> Go To Tommy Sample URL Param Page </a>
+</div>

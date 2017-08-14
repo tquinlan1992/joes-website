@@ -1,0 +1,26 @@
+# Dependency directory
+node_modules
+
+# Coverage
+coverage
+
+# Mac files
+.DS_STORE
+
+# IDE files
+*.iml
+.idea
+.project
+.classpath
+.settings/
+MANIFEST.MF
+.tags*
+
+# Build
+build
+
+# npm log files
+npm-debug.log*
+
+#coverage
+coverage
