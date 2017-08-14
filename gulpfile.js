@@ -89,7 +89,7 @@ gulp.task("copy-client", [
 gulp.task("sassify-client", ["clean-client-css-custom"], createSassifyTask.buildMin(srcAppPath + './sass/index.scss', publicBuildAppPath + './css/custom'));
 
 function baseWatchEnvironment() {
-    gulp.watch([srcAppPath + './**/*.json'], ['copy-client-json']);
+    gulp.watch([srcPublicPath + './**/*.json'], ['copy-client-json']);
     gulp.watch([srcClientPath + './server.js', "src/client/server/**/*"], ['copy-server']);
     gulp.watch(srcAppPath + './**/*.scss', ["sassify-client"]);
 }
