@@ -60,7 +60,6 @@ gulp.task("clean-client-server", createCleanTask([
     publicBuildPath + "/app/resources/**/*"
 ]));
 gulp.task("clean-client-css-dependencies", createCleanTask(publicBuildAppPath + "./css/dependencies/**/*.css"));
-gulp.task("clean-client-font-dependencies", createCleanTask(publicBuildAppPath + "./font/dependencies/**/*"));
 gulp.task("clean-client-json", createCleanTask([publicBuildAppPath + "./**/*.json"]));
 gulp.task("clean-client-css-custom", createCleanTask(publicBuildAppPath + "./css/custom/**/*.css"));
 
@@ -72,17 +71,13 @@ gulp.task("copy-server", ["clean-client-server"], createCopyTask(srcClientPath +
 gulp.task("copy-client-json", ["clean-client-json"], createCopyTask(srcPublicPath + "./**/*.json", srcPublicPath, publicBuildPath));
 gulp.task("copy-html", ["clean-client-html"], createCopyTask(srcPublicPath + "./index.html", srcPublicPath, publicBuildPath));
 gulp.task("copy-css-dependencies", ["clean-client-css-dependencies"], createCopyTask([
-    "./node_modules/animate.css/animate.min.css",
-    "./node_modules/font-awesome/css/font-awesome.min.css",
     "./node_modules/angular-material/angular-material.min.css"
 ], "./node_modules", publicBuildAppPath + "css/dependencies"));
-gulp.task("copy-font-dependencies", ["clean-client-font-dependencies"], createCopyTask("./node_modules/font-awesome/fonts/*", "./node_modules", publicBuildAppPath + "fonts/dependencies"));
 
 gulp.task("copy-client", [
     "copy-server",
     "copy-html",
     "copy-css-dependencies",
-    "copy-font-dependencies",
     "copy-client-json"
 ]);
 
