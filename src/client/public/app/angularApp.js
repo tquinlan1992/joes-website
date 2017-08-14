@@ -10,8 +10,7 @@ angular.module('app', [
     require("./templates"),
     require("./states/app"),
     require("./services/app"),
-    require("./filters/app"),
     require("./resourceLanguages/app"),
-    require("./configs/app"),
+    require("./siteData/app"),
     "envConfigs"
 ]);

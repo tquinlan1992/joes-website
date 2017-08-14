@@ -2,7 +2,8 @@ const angular = require("angular");
 const _ = require("lodash");
 require('angular-ui-router');
 const app = angular.module("states-module", [
-    'ui.router'
+    'ui.router',
+    require("./components/app")
 ]);
 
 app.config(($stateProvider, $urlRouterProvider, $locationProvider) => {

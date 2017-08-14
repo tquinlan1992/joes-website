@@ -2,7 +2,11 @@
     <h1>
         Home State (/home)
     </h1>
-    <sample-component-index test='component working' object-test=objectTest>
+
+    <p style="white-space: pre;">{{"description" | translate}}</p>
+
+    <a>{{$ctrl.siteData.employee}}</a>
+    <sample-component-index test='component working' object-test='objectTest'>
     </sample-component-index>
 
     <h1> {{"header" | translate}} </h1>

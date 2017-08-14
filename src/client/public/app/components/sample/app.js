@@ -8,32 +8,13 @@ app.component("sampleComponentIndex", {
         objectTest: "="
     },
     templateUrl: "components/sample/index.html",
-    controller: function(sampleComponentApi) {
+    controller: function() {
         "ngInject";
-        sampleComponentApi.getSampleJson().then(successResponse => {
-            this.sampleJSON = successResponse.data;
-        }, errorResponse => {
-            console.log('errorResponse', errorResponse);
-        });
 
         this.tasks = [1,2,3];
 
     }
 });
-
-app.factory("sampleComponentApi", ($http, getEnvConfigs) => {
-    "ngInject";
-    const factory = {};
-
-    factory.getSampleJson = function() {
-        return getEnvConfigs.then(envConfigs => {
-            return $http.get(envConfigs.data.serverUrl + "/sample.json");
-        });
-    };
-
-    return factory;
-});
-
 
 
 module.exports = "sampleComponentModule";
