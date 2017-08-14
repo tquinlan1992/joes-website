@@ -5,7 +5,8 @@ angular.module("components-module", [
     require("./home/app"),
     require("./sampleUrlParam/app"),
     require("./weather/app"),
-    require("./mdTheme/app")
+    require("./mdTheme/app"),
+    require("./headerNav/app")
 ]);
 
 module.exports = "components-module";
