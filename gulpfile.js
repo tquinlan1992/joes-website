@@ -39,6 +39,8 @@ gulp.task("copyTemplateCacheToBrowserifyWithAngularApp", createTemplateCache(kar
 
 gulp.task("copyAngularAppTokarmaTest", createCopyTask(srcAppPath + "**/*", srcAppPath, karmaTests));
 
+gulp.task("copyImages", createCopyTask(srcPublicPath + "images/**/*", srcPublicPath, publicBuildPath));
+
 gulp.task('browserify-client-angularApp', ["cleanKarmaTest", "copyTemplateCacheToBrowserifyWithAngularApp", "copyAngularAppTokarmaTest"], createBrowserifyTask.rawJsStream(karmaTests + './angularApp.js', "app", "./build/test/client/"));
 
 
@@ -87,6 +89,7 @@ function baseWatchEnvironment() {
     gulp.watch([srcPublicPath + './**/*.json'], ['copy-client-json']);
     gulp.watch([srcClientPath + './server.js', "src/client/server/**/*"], ['copy-server']);
     gulp.watch(srcAppPath + './**/*.scss', ["sassify-client"]);
+    gulp.watch(srcPublicPath + './images/**/*', ["copyImages"]);
 }
 
 gulp.task('watch-build-client-development', function() {
@@ -102,11 +105,13 @@ gulp.task('watch-build-client-production', function() {
 gulp.task('build-client-development', [
     "browserify-client-unminified",
     "copy-client",
+    "copyImages",
     "sassify-client"
 ]);
 
 gulp.task('build-client-production', [
     "browserify-client-minified",
     "copy-client",
+    "copyImages",
     "sassify-client"
 ]);

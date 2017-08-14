@@ -1,5 +1,11 @@
+$searsLighGrey: #E9E9F1;
+$searsBlack: #1D1E21;
+
 header-nav {
+    md-toolbar {
+        background-color: $searsLighGrey !important;
+    }
     h1 {
-        color: white;
+        color: $searsBlack;
     }
 }
